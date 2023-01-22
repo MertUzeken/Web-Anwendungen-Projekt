@@ -1,13 +1,5 @@
 # Web-Anwendungen-Projekt
 
-
-Naming Conventions:
-
-Variables:
-
-
-
-
 Java Naming Conventions Cheat Sheet
 
     Variables / Deklaration / Initialization: 
