@@ -1,0 +1,30 @@
+
+
++------------------+         +------------------------+         +-----------------------+
+|  ProjectService  |         |SampleProcessingService |         |  SoundPlaybackService |
++------------------+         +------------------------+         +-----------------------+
+| +loadProject()   |         | +processSample()       |         | +playSound()          |
+| +saveProject()   |         +------------------------+         | +stopSound()          |
+| +addTrack()      |                                            +-----------------------+
+| +removeTrack()   |
++------------------+
+          ^
+          |
+          |
++-------------------+         +------------------+
+|  ProjectController|         | SampleController |
++-------------------+         +------------------+
+| +loadProject()    |         | +processSample() |
+| +saveProject()    |         +------------------+
+| +addTrack()       |
+| +removeTrack()    |
++-------------------+
+          ^
+          |
+          |
++-------------------+
+|  SoundController  |
++-------------------+
+| +playSound()      |
+| +stopSound()      |
++-------------------+
