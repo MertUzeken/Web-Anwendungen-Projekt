@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="../static/style.css">
+  </head>
+  <body>
+    <button onclick="addRow()">Add Row</button>
+    <button onclick="addColumn()">Add Column</button>
+    <button onclick="pause()">Pause</button>
+    <button onclick="stop()">Stop</button>
+    <form action="project" method="post"> 
+    <div>
+      <button onclick="play()">Play</button>
+      <input type="text">
+    </div>
+  
+    <table id="myTable">
+      <tbody>
+        <tr>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+    <script>
+      function addRow() {
+        var table = document.getElementById("myTable");
+        var newRow = table.insertRow(-1);
+        var cellsCount = table.rows[0].cells.length;
+        for (var i = 0; i < cellsCount; i++) {
+          var cell = newRow.insertCell(i);
+          cell.innerHTML = '<input type="text">';
+        }
+      }
+  
+      function addColumn() {
+        var table = document.getElementById("myTable");
+        var rowsCount = table.rows.length;
+        for (var i = 0; i < rowsCount; i++) {
+          var row = table.rows[i];
+          var cell = row.insertCell(-1);
+          cell.innerHTML = '<input type="text">';
+        }
+      }
+  
+      function play() {
+        // code to start playing
+        console.log("Playing...");
+      }
+  
+      function pause() {
+        // code to pause playing
+        console.log("Paused.");
+      }
+  
+      function stop() {
+        // code to stop playing
+        console.log("Stopped.");
+      }
+  
+      window.onload = function() {
+        var table = document.getElementById("myTable");
+        table.deleteTHead();
+      }
+    </script>
+  
+  </body>
+</html>
