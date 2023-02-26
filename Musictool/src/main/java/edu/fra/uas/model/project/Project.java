@@ -1,4 +1,4 @@
-package fra.uas.Model.project;
+package edu.fra.uas.model.project;
 
 public class Project {
     private String projectName;
