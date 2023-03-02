@@ -1,24 +1,50 @@
-#matrix {
-  border: 1px solid black;
-  display: inline-block;
-  padding: 10px;
-}
-
 table {
   border-collapse: collapse;
-  margin-bottom: 10px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-td {
-  border: 1px solid black;
-  padding: 5px;
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
   text-align: center;
 }
 
-#controls {
-  text-align: center;
+table th {
+  background-color: #f2f2f2;
 }
 
-#controls button {
-  margin: 5px;
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button.delete-col {
+  background-color: #f44336;
 }

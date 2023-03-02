@@ -1,27 +1,72 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title></title>
+    <title>Matrix mit Knöpfen erweitern und löschen</title>
     <link rel="stylesheet" href="css/matrix.css">
-    <meta charset="UTF-8" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/matrix-interaction.js"></script>
-    <script src="js/matrix-expansion.js"></script>
-  </head>
-  <body>
-    <table>
-        <tr>
-          <td></td>
-          <td th:each="col : ${cols}" th:text="${col}"></td>
-        </tr>
-        <tr th:each="row : ${rows}" th:id="${row}">
-          <td th:text="${row}"></td>
-          <td th:each="col : ${cols}" th:id="${row + '-' + col}"></td>
-        </tr>
-      </table>
-      <div id="controls">
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Matrix</title>
+    </head>
+    <body>
+      <div class="table-container">
+        <table id="matrix">
+          <thead>
+            <tr>
+              <th>Track</th>
+              <th>Instrument</th>
+              <th>Note</th>
+              <th>
+                <button id="delete-current-col">X</button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input type="text" placeholder="Track 1" class="track-input">
+              </td>
+              <td>
+                <select class="instrument-select">
+                  <option value="piano">Piano</option>
+                  <option value="guitar">Guitar</option>
+                  <option value="drums">Drums</option>
+                  <option value="bass">Bass</option>
+                  <option value="saxophone">Saxophone</option>
+                </select>
+              </td>
+              <td>
+                <select class="note-select">
+                  <option value="c">C</option>
+                  <option value="d">D</option>
+                  <option value="e">E</option>
+                  <option value="f">F</option>
+                  <option value="g">G</option>
+                  <option value="a">A</option>
+                  <option value="h">H</option>
+                </select>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      <div>
         <button id="add-row">Add Row</button>
         <button id="add-col">Add Column</button>
+        <button id="delete-row">Delete Row</button>
+        <button id="delete-col">Delete Column</button>
       </div>
+      <div>
+        <button id="download">Download your Project</button>
+        <button id="upload">Upload your Project</button>
+      </div>
+      <div>
+        <button id="play">Play</button>
+        <button id="pause">Pause</button>
+        <button id="stop">Stop</button>
+      </div>
+    <script src="js/matrix-expansion.js"></script>
   </body>
-</html>
+  </html>
+  
+  
