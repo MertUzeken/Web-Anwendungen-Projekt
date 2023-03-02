@@ -2,7 +2,6 @@ const addRowButton = document.querySelector('#add-row');
 const addColButton = document.querySelector('#add-col');
 const deleteRowButton = document.querySelector('#delete-row');
 const deleteColButton = document.querySelector('#delete-col');
-const deleteCurrentCol = document.querySelector('#delete-current-col');
 const table = document.querySelector('#matrix');
 
 // Add Row
@@ -12,7 +11,21 @@ addRowButton.addEventListener('click', () => {
     const numOfCols = table.rows[0].cells.length;
 
     for (let i = 0; i < numOfCols; i++) {
-      newRow.insertCell(i);
+      if (i === 0) {
+        newRow.insertCell(i).innerHTML = "<td> <input type='checkbox' id='check'> <input type='text' placeholder='Track 1' class='track-input'></td>"
+      }
+
+      else if (i === 1) {
+        newRow.insertCell(i).innerHTML = "<td><select class='instrument-select'><option value='piano'>Piano</option><option value='guitar'>Guitar</option><option value'drums'>Drums</option><option value='bass'>Bass</option><option value='saxophone'>Saxophone</option></select></td>"
+      }
+
+      else if (i === 2) {
+        newRow.insertCell(i).innerHTML = "<td><select class='note-select'><option value='c'>C</option><option value='d'>D</option><option value='e'>E</option><option value='f'>F</option><option value='g'>G</option><option value='a'>A</option><option value='h'>H</option></select></td>"
+      }
+
+      else {
+        newRow.insertCell(i).innerHTML = "<td></td>"
+      }
     }
   }
 });
@@ -25,7 +38,8 @@ addColButton.addEventListener('click', () => {
     rows.forEach((row, index) => {
       const newCell = row.insertCell(-1);
       if (index === 0) {
-        newCell.innerHTML = "<button id='delete-current-col'>X</button>"
+        newCell.innerHTML = "<th></th>"
+        //"<button id='delete-current-col'>X</button>"
       }
     });
   }
@@ -51,21 +65,5 @@ deleteColButton.addEventListener('click', () => {
         row.deleteCell(lastCell);
       }
     });
-  }
-});
-
-
-// Delete Current Column
-deleteCurrentCol.addEventListener('click', () => {
-  const currentColumnIndex = deleteCurrentCol.cellIndex;
-  const rows = table.rows;
-  
-  for (let i = 0; i < rows.length; i++) {
-    rows[i].deleteCell(currentColumnIndex);
-  }
-
-  // delete the column header if it exists
-  if (table.tHead) {
-    table.tHead.deleteCell(currentColumnIndex);
   }
 });

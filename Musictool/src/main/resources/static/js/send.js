@@ -1,27 +1,31 @@
-function sendTable() {
-    var matrix = document.getElementById("matrix");
-    var rows = matrix.rows.length;
-    var cols = matrix.rows[0].cells.length;
-    var data = [];
-    for (var i = 0; i < rows; i++) {
-        data[i] = [];
-        for (var j = 0; j < cols; j++) {
-            data[i][j] = matrix.rows[i].cells[j].innerHTML;
-        }
-    }
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "example", true);
+// Event Listener für den Play Button hinzufügen
+  document.querySelector('#play').addEventListener("click", function() {
+    // Tabellendaten in JSON umwandeln
+    const data = [];
+    const table = document.getElementById("matrix");
+    const rows = table.querySelectorAll("tbody tr");
+    rows.forEach(function(row) {
+      const rowData = {};
+      const inputs = row.querySelectorAll("input, select");
+      inputs.forEach(function(input) {
+        rowData[input.name] = input.type === "checkbox" ? input.checked : input.value;
+      });
+      data.push(rowData);
+    });
+    const jsonData = JSON.stringify(data);
+    
+    // AJAX-Anfrage senden
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/project");
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            console.log(xhr.responseText);
-        }
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        console.log("Table data successfully sent.");
+      } else {
+        console.error("Error sending table data.");
+      }
     };
-    xhr.send(JSON.stringify(data));
-}
-
-var button = document.createElement("button");
-button.innerHTML = "Send Table";
-button.onclick = sendTable;
-document.body.appendChild(button);
+    xhr.send(jsonData);
+  });
+  

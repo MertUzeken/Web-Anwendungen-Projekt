@@ -10,6 +10,12 @@
     </head>
     <body>
       <div class="table-container">
+        <div>
+          <button id="add-row">Add Row</button>
+          <button id="add-col">Add Column</button>
+          <button id="delete-row">Delete Row</button>
+          <button id="delete-col">Delete Column</button>
+        </div>
         <table id="matrix">
           <thead>
             <tr>
@@ -17,17 +23,17 @@
               <th>Instrument</th>
               <th>Note</th>
               <th>
-                <button id="delete-current-col">X</button>
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>
-                <input type="text" placeholder="Track 1" class="track-input">
+                <input type="checkbox" class="check"> 
+                <input type="text" placeholder="Track 1" class="select">
               </td>
               <td>
-                <select class="instrument-select">
+                <select class="select">
                   <option value="piano">Piano</option>
                   <option value="guitar">Guitar</option>
                   <option value="drums">Drums</option>
@@ -36,7 +42,7 @@
                 </select>
               </td>
               <td>
-                <select class="note-select">
+                <select class="select">
                   <option value="c">C</option>
                   <option value="d">D</option>
                   <option value="e">E</option>
@@ -51,12 +57,6 @@
           </tbody>
         </table>
       <div>
-        <button id="add-row">Add Row</button>
-        <button id="add-col">Add Column</button>
-        <button id="delete-row">Delete Row</button>
-        <button id="delete-col">Delete Column</button>
-      </div>
-      <div>
         <button id="download">Download your Project</button>
         <button id="upload">Upload your Project</button>
       </div>
@@ -66,6 +66,7 @@
         <button id="stop">Stop</button>
       </div>
     <script src="js/matrix-expansion.js"></script>
+    <script src="js/send.js"></script>
   </body>
   </html>
   
