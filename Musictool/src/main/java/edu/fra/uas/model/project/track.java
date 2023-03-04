@@ -9,8 +9,9 @@ public class Track {
     private static int id = 0;
     private boolean active; 
     private String trackName;
-    private String IntrumentName;
-    private String Note;
+    private String intrumentName;
+    private String note;
+    private String path;
     private List<Integer> trackList = new ArrayList<Integer>();
 
     
@@ -33,16 +34,16 @@ public class Track {
         this.trackName = trackName;
     }
     public String getIntrumentName() {
-        return IntrumentName;
+        return intrumentName;
     }
     public void setIntrumentName(String intrumentName) {
-        IntrumentName = intrumentName;
+        this.intrumentName = intrumentName;
     }
     public String getNote() {
-        return Note;
+        return note;
     }
     public void setNote(String note) {
-        Note = note;
+        this.note = note;
     }
     public List<Integer> getTrackList() {
         return trackList;
