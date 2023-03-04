@@ -10,16 +10,16 @@ public class track {
     private boolean active; 
     private String trackName;
     private String IntrumentName;
-    private String Noter;
+    private String Notes;
     private List<Integer> trackList = new ArrayList<Integer>();
 
     
-    public track(boolean active, String trackName, String intrumentName, String noter, List<Integer> trackList) {
+    public track(boolean active, String trackName, String intrumentName, String notes, List<Integer> trackList) {
         id = id++;
         this.active = active;
         this.trackName = trackName;
         IntrumentName = intrumentName;
-        Noter = noter;
+        Notes = notes;
         this.trackList = trackList;
     }
     public long getId() {
@@ -43,11 +43,11 @@ public class track {
     public void setIntrumentName(String intrumentName) {
         IntrumentName = intrumentName;
     }
-    public String getNoter() {
-        return Noter;
+    public String getNotes() {
+        return Notes;
     }
-    public void setNoter(String noter) {
-        Noter = noter;
+    public void setNotes(String notes) {
+        Notes = notes;
     }
     public List<Integer> getTrackList() {
         return trackList;
