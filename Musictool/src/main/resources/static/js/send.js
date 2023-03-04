@@ -2,35 +2,33 @@ const playButton = document.querySelector('#play-btn');
 
 playButton.addEventListener('click', () => {
   const table = document.querySelector('#matrix'); 
-
-
-  const soundList = [];
-
-  const tracks = [];
-  const track = []
+  var data = {
+    projectName: document.getElementById("projectName").value,
+    authorName: document.getElementById("authorName").value,
+  };
   for (var i = 1, row; row=table.rows[i];i++){
+    
+    var noteRow =[];
+    var a = false;
+
     for (var j = 0, cell; cell=row.cells[j];j++){
-      if (j === 0) {
-        track.push("active:" + document.getElementsByClassName('check')[i-1].value);
-      }
-      else if (j === 1){
-        track.push("trackName:" + document.getElementsByClassName('trackText')[i-1].value);
-      }
-      else if (j === 2){
-        track.push("IntrumentName:" + document.getElementsByClassName('instrument')[i-1].value);
-      }
-      else if (j>=3){
-        soundList.push(""); //ToDO of Mared the 1 else 0
+      if (j>=3){
+        noteRow.push(1); //ToDO of Mared the 1 else 0
       }
     }
-    track.push(soundList);
+    if (document.getElementsByClassName('check')[i-1].checked){
+      a = true;
+    }
+    
+    data["track"+i] = {
+      active: a,
+      trackName: document.getElementsByClassName('trackText')[i-1].value,
+      instrument: document.getElementsByClassName('instrument')[i-1].value,
+      note:document.getElementsByClassName('note')[i-1].value,
+      toneMatrix: noteRow
+    };
   }
 
-  const data = {
-    projectName: document.getElementById("projectName").value,
-    autorName: document.getElementById("projectName").value,
-    trackInfo: track,
-  };
   fetch('/project', {
     method: 'POST',
     headers: {

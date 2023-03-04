@@ -4,23 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class track {
+public class Track {
 
     private static int id = 0;
     private boolean active; 
     private String trackName;
     private String IntrumentName;
-    private String Notes;
+    private String Note;
     private List<Integer> trackList = new ArrayList<Integer>();
 
     
-    public track(boolean active, String trackName, String intrumentName, String notes, List<Integer> trackList) {
+    public Track() {
         id = id++;
-        this.active = active;
-        this.trackName = trackName;
-        IntrumentName = intrumentName;
-        Notes = notes;
-        this.trackList = trackList;
     }
     public long getId() {
         return id;
@@ -43,11 +38,11 @@ public class track {
     public void setIntrumentName(String intrumentName) {
         IntrumentName = intrumentName;
     }
-    public String getNotes() {
-        return Notes;
+    public String getNote() {
+        return Note;
     }
-    public void setNotes(String notes) {
-        Notes = notes;
+    public void setNote(String note) {
+        Note = note;
     }
     public List<Integer> getTrackList() {
         return trackList;

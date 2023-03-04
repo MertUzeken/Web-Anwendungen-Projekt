@@ -1,17 +1,17 @@
-const playBtn = document.querySelector('#download');
+const playButton = document.querySelector('#dwn-btn');
 
-playBtn.addEventListener("click", function() {
-  const tableData = getTableData(); // Die Funktion getTableData() 
+downloadButton.addEventListener('click', () => {
 
-  const xhr = new XMLHttpRequest();
-  xhr.open("POST", "/project"); // Die URL Backend-Route.
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.onload = function() {
-    if (xhr.status === 200) {
-      console.log("Table data successfully sent to backend.");
-    } else {
-      console.error("Error sending table data to backend.");
-    }
+  const downloadJsonFile = (data, filename) => {
+    const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    link.click();
+    URL.revokeObjectURL(url);
   };
-  xhr.send(JSON.stringify(tableData));
+  
+  downloadJsonFile(jsonData, document.getElementById("projectName").value+'.json');
 });
+
