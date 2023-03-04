@@ -8,15 +8,17 @@ public class Project {
 //Model Attributes
     private static long id; 
     private String projectName; 
-    private long autorId; 
+    private long autorId; //Maybe Later if we got UserDB
     private String autorName; 
     private  List<track> tracks = new ArrayList<track>();
 
-    public Project(List<track> tracks) {
+    public Project(String projectName, String autorName, List<track> tracks) {
 
         //ToDO 
         //More if user is addes or Database
         id = id++;
+        this.autorName=autorName;
+        this.projectName=projectName;
         this.tracks = tracks;
     }
     public void setTracks(List<track> tracks) {
@@ -52,5 +54,5 @@ public class Project {
     public void  addTrack(track track) {
         tracks.add(track);
     }
-    
+
 }

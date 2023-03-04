@@ -1,31 +1,45 @@
+const playButton = document.querySelector('#play-btn');
 
-// Event Listener für den Play Button hinzufügen
-  document.querySelector('#play').addEventListener("click", function() {
-    // Tabellendaten in JSON umwandeln
-    const data = [];
-    const table = document.getElementById("matrix");
-    const rows = table.querySelectorAll("tbody tr");
-    rows.forEach(function(row) {
-      const rowData = {};
-      const inputs = row.querySelectorAll("input, select");
-      inputs.forEach(function(input) {
-        rowData[input.name] = input.type === "checkbox" ? input.checked : input.value;
-      });
-      data.push(rowData);
-    });
-    const jsonData = JSON.stringify(data);
-    
-    // AJAX-Anfrage senden
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", "/project");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onload = function() {
-      if (xhr.status === 200) {
-        console.log("Table data successfully sent.");
-      } else {
-        console.error("Error sending table data.");
+playButton.addEventListener('click', () => {
+  const table = document.querySelector('#matrix'); 
+
+
+  const soundList = [];
+
+  const tracks = [];
+  const track = []
+  for (var i = 1, row; row=table.rows[i];i++){
+    for (var j = 0, cell; cell=row.cells[j];j++){
+      if (j === 0) {
+        track.push("active:" + document.getElementsByClassName('check')[i-1].value);
       }
-    };
-    xhr.send(jsonData);
-  });
-  
+      else if (j === 1){
+        track.push("trackName:" + document.getElementsByClassName('trackText')[i-1].value);
+      }
+      else if (j === 2){
+        track.push("IntrumentName:" + document.getElementsByClassName('instrument')[i-1].value);
+      }
+      else if (j>=3){
+        soundList.push(""); //ToDO of Mared the 1 else 0
+      }
+    }
+    track.push(soundList);
+  }
+
+  const data = {
+    projectName: document.getElementById("projectName").value,
+    autorName: document.getElementById("projectName").value,
+    trackInfo: track,
+  };
+  fetch('/project', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(json => console.log(json))
+  .catch(error => console.error(error));
+});
+

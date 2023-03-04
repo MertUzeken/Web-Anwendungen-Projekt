@@ -12,15 +12,15 @@ addRowButton.addEventListener('click', () => {
 
     for (let i = 0; i < numOfCols; i++) {
       if (i === 0) {
-        newRow.insertCell(i).innerHTML = "<td> <input type='checkbox' id='check'> <input type='text' placeholder='Track 1' class='track-input'></td>"
+        newRow.insertCell(i).innerHTML = "<td><input type='checkbox' class='check'><input type='text' placeholder='Track 1' class='trackText'></td>"
       }
 
       else if (i === 1) {
-        newRow.insertCell(i).innerHTML = "<td><select class='instrument-select'><option value='piano'>Piano</option><option value='guitar'>Guitar</option><option value'drums'>Drums</option><option value='bass'>Bass</option><option value='saxophone'>Saxophone</option></select></td>"
+        newRow.insertCell(i).innerHTML = "<td><select class='instrument'><option value='piano'>Piano</option><option value='guitar'>Guitar</option><option value'drums'>Drums</option><option value='bass'>Bass</option><option value='saxophone'>Saxophone</option></select></td>"
       }
 
       else if (i === 2) {
-        newRow.insertCell(i).innerHTML = "<td><select class='note-select'><option value='c'>C</option><option value='d'>D</option><option value='e'>E</option><option value='f'>F</option><option value='g'>G</option><option value='a'>A</option><option value='h'>H</option></select></td>"
+        newRow.insertCell(i).innerHTML = "<td><select class='note'><option value='c'>C</option><option value='d'>D</option><option value='e'>E</option><option value='f'>F</option><option value='g'>G</option><option value='a'>A</option><option value='h'>H</option></select></td>"
       }
 
       else {

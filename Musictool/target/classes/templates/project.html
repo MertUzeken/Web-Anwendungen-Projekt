@@ -9,6 +9,12 @@
       <title>Matrix</title>
     </head>
     <body>
+
+      <div>
+        <input type="text" placeholder="Project Name" id="projectName">
+        <input type="text" placeholder="Autor Name" id="autorName">
+      </div>
+
       <div class="table-container">
         <div>
           <button id="add-row">Add Row</button>
@@ -30,10 +36,10 @@
             <tr>
               <td>
                 <input type="checkbox" class="check"> 
-                <input type="text" placeholder="Track 1" class="select">
+                <input type="text" placeholder="Track 1" class="trackText">
               </td>
               <td>
-                <select class="select">
+                <select class="instrument">
                   <option value="piano">Piano</option>
                   <option value="guitar">Guitar</option>
                   <option value="drums">Drums</option>
@@ -42,7 +48,7 @@
                 </select>
               </td>
               <td>
-                <select class="select">
+                <select class="note">
                   <option value="c">C</option>
                   <option value="d">D</option>
                   <option value="e">E</option>
@@ -59,9 +65,10 @@
       <div>
         <button id="download">Download your Project</button>
         <button id="upload">Upload your Project</button>
+        <button id="save">Public Save</button>
       </div>
       <div>
-        <button id="play">Play</button>
+        <button id="play-btn">Play</button>
         <button id="pause">Pause</button>
         <button id="stop">Stop</button>
       </div>
