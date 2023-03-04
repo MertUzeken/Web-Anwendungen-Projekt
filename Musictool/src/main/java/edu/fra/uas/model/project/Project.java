@@ -18,8 +18,8 @@ public class Project {
         
         //More if user is addes or Database
         id = id++;
-        this.authorName= (String) jsonMap.get("authorName");
-        this.projectName= (String) jsonMap.get("projectName");
+        this.authorName = (String) jsonMap.get("authorName");
+        this.projectName = (String) jsonMap.get("projectName");
 
         // create a list of tracks from the JSON map
         List<Track> tracks = new ArrayList<>();
