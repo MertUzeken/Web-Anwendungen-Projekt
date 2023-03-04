@@ -32,14 +32,12 @@ public class Project {
             trackDto.setTrackName((String) trackMap.get("trackName"));
             trackDto.setIntrumentName((String) trackMap.get("IntrumentName"));
             trackDto.setNote((String) trackMap.get("note"));
-
             List<Integer> toneMatrixList = (List<Integer>) trackMap.get("toneMatrix");
             List<Integer> integerList = new ArrayList<>();
-            
             for(Integer num : toneMatrixList) {
                 integerList.add(num);
             }
-            System.out.println(integerList);
+            System.out.println(integerList); //Muss wieder raus ONYL SYSTEM OUTPUT
             trackDto.setTrackList(integerList);
             tracks.add(trackDto);
             i++;
