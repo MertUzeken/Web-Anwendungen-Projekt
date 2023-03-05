@@ -24,7 +24,7 @@ addRowButton.addEventListener('click', () => {
       }
 
       else {
-        newRow.insertCell(i).innerHTML = "<td></td>"
+        newRow.insertCell(i).style.backgroundColor = "white";
       }
     }
   }
@@ -37,10 +37,7 @@ addColButton.addEventListener('click', () => {
 
     rows.forEach((row, index) => {
       const newCell = row.insertCell(-1);
-      if (index === 0) {
-        newCell.innerHTML = "<th></th>"
-        //"<button id='delete-current-col'>X</button>"
-      }
+      newCell.style.backgroundColor = "white";
     });
   }
 });

@@ -12,12 +12,12 @@ document.addEventListener("DOMContentLoaded", function() {
     // Überprüfen Sie, ob es sich um eine Zelle in einer Zeile > 0 und einer Spalte > 3 handelt
     if (rowIndex > 0 && columnIndex >= 3) {
       // Überprüfen, ob die Zelle bereits gelb ist
-      if (target.style.backgroundColor === "yellow") {
+      if (target.style.backgroundColor === "green") {
         // Wenn ja, ändern Sie die Farbe auf weiß
         target.style.backgroundColor = "white";
       } else {
         // Wenn nein, ändern Sie die Farbe auf gelb
-        target.style.backgroundColor = "yellow";
+        target.style.backgroundColor = "green";
       }
     }
   });

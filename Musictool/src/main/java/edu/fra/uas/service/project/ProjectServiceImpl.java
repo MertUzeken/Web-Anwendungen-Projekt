@@ -56,8 +56,19 @@ public class ProjectServiceImpl implements ProjectService {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'openProject'");
     }
+    @Override
+    public void saveLocal(Project project){
+        localStore.add(project);
+    }
+    @Override
+    public Project getLocalProjByName(String name){
 
-
+        for (Project project : localStore){
+            if(project.getProjectName().equals(name)){
+                return project;
+            }
+        }
+        return null;
     
-
+    }
 }

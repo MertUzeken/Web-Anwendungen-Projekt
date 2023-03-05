@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>Music Player</title>
-  </head>
-  <body>
-    <h1>Music Player</h1>
-    <button onclick="play()">Play</button>
-    <button onclick="pause()">Pause</button>
-    <button onclick="stop()">Stop</button>
-    <label for="speedInput">Speed:</label>
-    <input type="range" id="speedInput" min="0.5" max="2" step="0.1" value="1" oninput="setSpeed(this.value)">
-    <label for="volumeInput">Volume:</label>
-    <input type="range" id="volumeInput" min="0" max="1" step="0.1" value="1" oninput="setVolume(this.value)">
-    
-    <script th:inline="javascript">
-      var audioFiles = [[${musicPaths}]];
+var audioFiles = [[${musicPaths}]];
       var numRows = audioFiles.length;
       var numCols = audioFiles[0].length;
       var audioElements = [];
@@ -99,6 +83,3 @@
           audioElements[i].volume = parseFloat(volume);
         }
       }
-    </script>
-  </body>
-</html>

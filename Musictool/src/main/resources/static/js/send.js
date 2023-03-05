@@ -1,4 +1,4 @@
-const playButton = document.querySelector('#play-btn');
+const playButton = document.querySelector('#send-btn');
 
 playButton.addEventListener('click', () => {
   const table = document.querySelector('#matrix'); 
@@ -13,7 +13,7 @@ playButton.addEventListener('click', () => {
 
     for (var j = 0, cell; cell=row.cells[j];j++){
       if (j>=3){
-        if (cell.style.backgroundColor == "white"){
+        if (cell.style.backgroundColor === "white"){
           noteRow.push(0)
         }else {
           noteRow.push(1);
