@@ -52,9 +52,26 @@ public class ProjectServiceImpl implements ProjectService {
         throw new UnsupportedOperationException("Unimplemented method 'showAllProject'");
     }
     @Override
-    public void openProject(Project project) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'openProject'");
+    public String[][] openProject(Project project) {
+
+        int n = project.getTracks().get(0).getTrackList().size();
+        int m= project.getTracks().size();
+        String[][] arrayBox = new String[n][m];
+
+        for (int i=0; i<n; i++){
+            for (int j=0; i<m; i++){
+                String a="";
+                if (project.getTracks().get(i).getTrackList().get(j) == 1){
+                a = "sound"+"/"+ project.getTracks().get(i).getIntrumentName()+ "/"+ project.getTracks().get(i).getNote() +".mp3";
+            }
+                else {
+                    a= "";
+                }
+                arrayBox[i][j] =  a;
+            }
+        }
+        System.out.println((String)arrayBox [0][0]);
+        return arrayBox;
     }
     @Override
     public void saveLocal(Project project){

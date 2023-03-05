@@ -13,7 +13,7 @@ public interface ProjectService {
     void downloadProject(Project project);
     void uploadProject(Project project);
     void saveProject(Project project);
-    void openProject(Project project);
+    public String[][] openProject(Project project);
     List<Project>showAllProject();
     Project getLocalProjByName(String string);
     public void saveLocal(Project project);

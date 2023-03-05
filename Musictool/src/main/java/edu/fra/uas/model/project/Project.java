@@ -37,7 +37,7 @@ public class Project {
             for(Integer num : toneMatrixList) {
                 integerList.add(num);
             }
-            System.out.println(integerList); //Muss wieder raus ONYL SYSTEM OUTPUT
+            //System.out.println(integerList); //Muss wieder raus ONYL SYSTEM OUTPUT
             trackDto.setTrackList(integerList);
             tracks.add(trackDto);
             i++;

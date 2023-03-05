@@ -12,6 +12,7 @@ public class Track {
     private String intrumentName;
     private String note;
     private String path;
+    private List<Integer> trackList = new ArrayList<Integer>();
     
     public Track() {
         id = id++;
@@ -55,7 +56,7 @@ public class Track {
     public void setPath(String path) {
         this.path = path;
     }
-    private List<Integer> trackList = new ArrayList<Integer>();
+
 
 
     
