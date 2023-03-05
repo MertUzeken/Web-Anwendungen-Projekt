@@ -63,14 +63,13 @@ public class ProjectServiceImpl implements ProjectService {
                 String a="";
                 if (project.getTracks().get(i).getTrackList().get(j) == 1){
                 a = "sound"+"/"+ project.getTracks().get(i).getIntrumentName()+ "/"+ project.getTracks().get(i).getNote() +".mp3";
-            }
+                }
                 else {
                     a= "";
                 }
                 arrayBox[i][j] =  a;
             }
         }
-        System.out.println((String)arrayBox [0][0]);
         return arrayBox;
     }
     @Override

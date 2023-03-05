@@ -32,14 +32,16 @@ private Project mainProject = null;
                 model.addAttribute("musicPaths", musicPaths);
                 System.out.println(musicPaths);
             }
+            System.out.println("test");
             return "project";
     }
 
     @GetMapping("/test")
     public String getSoundfiles(Model model) {
         String[][] musicPaths = {
-            {"sound/test.mp3", "sound/test.mp3", "sound/test.mp3"},
-            {"sound/test.mp3", "sound/test.mp3", "sound/test.mp3"}};
+            {"sound/piano/d.mp3", "", "","","","","sound/piano/c.mp3"},
+            {"sound/piano/c.mp3", "sound/piano/c.mp3", "sound/piano/c.mp3","sound/piano/c.mp3","sound/piano/c.mp3","sound/piano/c.mp3","sound/piano/c.mp3"},
+            {"sound/piano/e.mp3", "sound/piano/e.mp3", "","","","sound/piano/c.mp3",""}};
         model.addAttribute("musicPaths", musicPaths);
         return "test"; 
     }
