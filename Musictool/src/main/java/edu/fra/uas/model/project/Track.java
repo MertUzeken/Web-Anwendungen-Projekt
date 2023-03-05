@@ -6,6 +6,13 @@ import java.util.List;
 
 public class Track {
 
+    /*
+     * active: is Track active?
+     * trackName: Textbox 
+     * intrumentName: Picked Instrument in Frontend
+     * note:Picked Note in Frontend
+     * path: Path in Sound folder but currtently not in use
+     */
     private static int id = 0;
     private boolean active; 
     private String trackName;
@@ -17,6 +24,12 @@ public class Track {
     public Track() {
         id = id++;
     }
+
+
+    /*
+     * GETTER AND SETTER METHODS
+     */
+
     public long getId() {
         return id;
     }

@@ -1,3 +1,5 @@
+//NOT in USE Script is directly in project HTML
+
 var audioFiles = [[${musicPaths}]];
 var numRows = audioFiles.length;
 var numCols = audioFiles[0].length;

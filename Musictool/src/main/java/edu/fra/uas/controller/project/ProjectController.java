@@ -24,7 +24,8 @@ private ProjectService projectService;
 private Project mainProject = null;
 
 
-
+    //Main Project
+    //ToDo in Future -> SQL Save, Connect to USER model, Show all project, Community
     @GetMapping("/project")
         public String loadProject(Model model){
             if (mainProject != null){
@@ -35,7 +36,7 @@ private Project mainProject = null;
             System.out.println("test");
             return "project";
     }
-
+    //Test Mapping Olay for Sound Array
     @GetMapping("/test")
     public String getSoundfiles(Model model) {
         String[][] musicPaths = {
@@ -45,7 +46,8 @@ private Project mainProject = null;
         model.addAttribute("musicPaths", musicPaths);
         return "test"; 
     }
-
+    //Frontend POST-> JSON -> Backend
+    //Frontend sends a JSON via JS to the backend
     @PostMapping("/project")
     public ResponseEntity<String> createProject(@RequestBody Map<String, Object> jsonMap) {
       Project project = new Project(jsonMap);

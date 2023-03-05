@@ -1,22 +1,21 @@
-// Warten bis das Dokument vollständig geladen ist
 document.addEventListener("DOMContentLoaded", function() {
-  // Das table-Element auswählen
+  // Get Tabel id matrix
   var table = document.getElementById("matrix");
 
-  // Auf Klicks in den td-Elementen hören und Farbe ändern
+  // Check for click on Tabel
   table.addEventListener("click", function(event) {
     var target = event.target;
     var columnIndex = target.cellIndex;
     var rowIndex = target.parentNode.rowIndex;
 
-    // Überprüfen Sie, ob es sich um eine Zelle in einer Zeile > 0 und einer Spalte > 3 handelt
+    // Check if click was after first row and after 3 column
     if (rowIndex > 0 && columnIndex >= 3) {
-      // Überprüfen, ob die Zelle bereits gelb ist
+      // Check if Cell is green
       if (target.style.backgroundColor === "green") {
-        // Wenn ja, ändern Sie die Farbe auf weiß
+        // set it white
         target.style.backgroundColor = "white";
       } else {
-        // Wenn nein, ändern Sie die Farbe auf gelb
+        // set green if ists white
         target.style.backgroundColor = "green";
       }
     }

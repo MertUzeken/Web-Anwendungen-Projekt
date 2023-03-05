@@ -1,11 +1,15 @@
+//Creats JSON and send it to backend
+
 const playButton = document.querySelector('#send-btn');
 
 playButton.addEventListener('click', () => {
   const table = document.querySelector('#matrix'); 
   var data = {
+    //first 2 Elements in JSON
     projectName: document.getElementById("projectName").value,
     authorName: document.getElementById("authorName").value,
   };
+  //Builds JSON TRACK Child
   for (var i = 1, row; row=table.rows[i];i++){
     
     var noteRow =[];
@@ -33,7 +37,7 @@ playButton.addEventListener('click', () => {
       toneMatrix: noteRow
     };
   }
-
+  //Send to Backend
   fetch('/project', {
     method: 'POST',
     headers: {

@@ -1,3 +1,13 @@
+/**
+For: Prof. Dr. Armin Lehmann
+*Submitted by: 
+*Mert Uzeken 1142543
+*Aryan Baschir 1458978
+*Dinara Kurmanbek 1346718
+*Winter semester 2022/23
+*Submission deadline: 05.03.2023
+*/
+
 package edu.fra.uas;
 
 import org.springframework.boot.SpringApplication;

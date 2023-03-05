@@ -2,184 +2,223 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>Matrix mit Knöpfen erweitern und löschen</title>
-    <link rel="stylesheet" href="css/matrix.css">
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/matrix.css" />
     <!DOCTYPE html>
     <html>
-    <head>
-      <title>Matrix</title>
-    </head>
-    <body>
-
-      <div>
-        <input type="text" placeholder="Project Name" id="projectName">
-        <input type="text" placeholder="Author Name" id="authorName">
-      </div>
-
-      <div class="table-container">
-        <div>
-          <button id="add-row">Add Row</button>
-          <button id="add-col">Add Column</button>
-          <button id="delete-row">Delete Row</button>
-          <button id="delete-col">Delete Column</button>
+      <head>
+        <title>Matrix</title>
+      </head>
+      <body>
+        <header class="content-wrapper">
+          <nav>
+            <div class="logo"><a href="./index">MusicEditor</a></div>
+          </nav>
+        </header>
+        <div class="container">
+          <div class="project">
+            <div class="project-main">
+              <h2>Project</h2>
+              <div class="project-info">
+                <input type="text" placeholder="Project Name" id="projectName" />
+                <input type="text" placeholder="Author Name" id="authorName" />
+              </div>
+  
+              <div class="table-container">
+                <div>
+                  <button class="green-button" id="add-row">Add Row</button>
+                  <button class="green-button" id="add-col">Add Column</button>
+                  <button class="red-button" id="delete-row">Delete Row</button>
+                  <button class="red-button" id="delete-col">Delete Column</button>
+                </div>
+                <table id="matrix">
+                  <thead>
+                    <tr>
+                      <th>Track</th>
+                      <th>Instrument</th>
+                      <th>Note</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td id="checkbox-td">
+                        <input type="checkbox" class="check" />
+                        <input
+                          type="text"
+                          placeholder="Track 1"
+                          class="trackText"
+                        />
+                      </td>
+                      <td>
+                        <select class="instrument">
+                          <option value="piano">Piano</option>
+                          <option value="guitar">Guitar</option>
+                          <option value="drums">Drums</option>
+                          <option value="bass">Bass</option>
+                          <option value="saxophone">Saxophone</option>
+                        </select>
+                      </td>
+                      <td>
+                        <select class="note">
+                          <option value="c">C</option>
+                          <option value="d">D</option>
+                          <option value="e">E</option>
+                          <option value="f">F</option>
+                          <option value="g">G</option>
+                          <option value="a">A</option>
+                          <option value="h">H</option>
+                        </select>
+                      </td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div>
+                  <button onclick="play()">Play</button>
+                  <button onclick="pause()">Pause</button>
+                  <button onclick="stop()">Stop</button>
+                  <label for="speedInput">Speed:</label>
+                  <input
+                    type="range"
+                    id="speedInput"
+                    min="0.5"
+                    max="2"
+                    step="0.1"
+                    value="1"
+                    oninput="setSpeed(this.value)"
+                  />
+                  <label for="volumeInput">Volume:</label>
+                  <input
+                    type="range"
+                    id="volumeInput"
+                    min="0"
+                    max="1"
+                    step="0.1"
+                    value="1"
+                    oninput="setVolume(this.value)"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="project-footer">
+              <div>
+                <button id="send-btn">Get Sound</button>
+                <button id="dwn-btn">Download your Project</button>
+                <!--<button id="upload">Upload your Project</button>-->
+                <!--<button id="save">Public Save</button>-->
+              </div>
+            </div>
+            </div>
+          
         </div>
-        <table id="matrix">
-          <thead>
-            <tr>
-              <th>Track</th>
-              <th>Instrument</th>
-              <th>Note</th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <input type="checkbox" class="check"> 
-                <input type="text" placeholder="Track 1" class="trackText">
-              </td>
-              <td>
-                <select class="instrument">
-                  <option value="piano">Piano</option>
-                  <option value="guitar">Guitar</option>
-                  <option value="drums">Drums</option>
-                  <option value="bass">Bass</option>
-                  <option value="saxophone">Saxophone</option>
-                </select>
-              </td>
-              <td>
-                <select class="note">
-                  <option value="c">C</option>
-                  <option value="d">D</option>
-                  <option value="e">E</option>
-                  <option value="f">F</option>
-                  <option value="g">G</option>
-                  <option value="a">A</option>
-                  <option value="h">H</option>
-                </select>
-              </td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-      <div>
-        <button id="send-btn">Get Sound</button>
-        <button id="dwn-btn">Download your Project</button>
-        <!--<button id="upload">Upload your Project</button>-->
-        <!--<button id="save">Public Save</button>-->
-      </div>
-      <div>
-        <button onclick="play()">Play</button>
-        <button onclick="pause()">Pause</button>
-        <button onclick="stop()">Stop</button>
-        <label for="speedInput">Speed:</label>
-        <input type="range" id="speedInput" min="0.5" max="2" step="0.1" value="1" oninput="setSpeed(this.value)">
-        <label for="volumeInput">Volume:</label>
-        <input type="range" id="volumeInput" min="0" max="1" step="0.1" value="1" oninput="setVolume(this.value)">
-      </div>
 
-    <script src="js/matrix-expansion.js"></script>
-    <script src="js/matrix-interaction.js"></script>
-    <script src="js/send.js"></script>
-    <script src="js/onload.js"></script>
-    <script th:inline="javascript">
-      var audioFiles = [[${musicPaths}]];
-      var numRows = audioFiles.length;
-      var numCols = audioFiles[0].length;
-      var audioElements = [];
-      var currentColumn = 0;
-      var playing = false;
-      
-      function createAudioElements() {
-        for (var i = 0; i < numRows; i++) {
-          var audio = new Audio(audioFiles[i][currentColumn]);
-          audio.addEventListener('ended', onAudioEnded);
-          audioElements.push(audio);
-        }
-      }
-      
-      function onAudioEnded() {
-        var allEnded = true;
-        for (var i = 0; i < numRows; i++) {
-          if (!audioElements[currentColumn * numRows + i].ended) {
-            allEnded = false;
-            break;
+        <script src="js/matrix-expansion.js"></script>
+        <script src="js/matrix-interaction.js"></script>
+        <script src="js/send.js"></script>
+        <script src="js/onload.js"></script>
+        <script th:inline="javascript">
+          var audioFiles = [`${musicPaths}`];
+          var numRows = audioFiles.length;
+          var numCols = audioFiles[0].length;
+          var audioElements = [];
+          var currentColumn = 0;
+          var playing = false;
+
+          function createAudioElements() {
+            for (var i = 0; i < numRows; i++) {
+              var audio = new Audio(audioFiles[i][currentColumn]);
+              audio.addEventListener("ended", onAudioEnded);
+              audioElements.push(audio);
+            }
           }
-        }
-        if (allEnded) {
-          currentColumn++;
-          if (currentColumn < numCols) {
-            createAudioElements();
-            playCurrentColumn();
-          } else {
+
+          function onAudioEnded() {
+            var allEnded = true;
+            for (var i = 0; i < numRows; i++) {
+              if (!audioElements[currentColumn * numRows + i].ended) {
+                allEnded = false;
+                break;
+              }
+            }
+            if (allEnded) {
+              currentColumn++;
+              if (currentColumn < numCols) {
+                createAudioElements();
+                playCurrentColumn();
+              } else {
+                currentColumn = 0;
+                playing = false;
+              }
+            }
+          }
+
+          function playCurrentColumn() {
+            for (var i = 0; i < numRows; i++) {
+              var audio = audioElements[currentColumn * numRows + i];
+              audio.play();
+              audio.playbackRate = parseFloat(
+                document.getElementById("speedInput").value
+              );
+              audio.volume = parseFloat(
+                document.getElementById("volumeInput").value
+              );
+            }
+          }
+
+          function play() {
+            if (!playing) {
+              createAudioElements();
+              playCurrentColumn();
+              playing = true;
+            } else {
+              pause();
+              currentColumn = 0;
+              createAudioElements();
+              playCurrentColumn();
+              playing = true;
+            }
+          }
+
+          function pause() {
+            for (var i = 0; i < audioElements.length; i++) {
+              audioElements[i].pause();
+            }
+            playing = false;
+          }
+
+          function stop() {
+            for (var i = 0; i < audioElements.length; i++) {
+              audioElements[i].pause();
+              audioElements[i].currentTime = 0;
+            }
             currentColumn = 0;
             playing = false;
           }
-        }
-      }
-      
-      function playCurrentColumn() {
-        for (var i = 0; i < numRows; i++) {
-          var audio = audioElements[currentColumn * numRows + i];
-          audio.play();
-          audio.playbackRate = parseFloat(document.getElementById("speedInput").value);
-          audio.volume = parseFloat(document.getElementById("volumeInput").value);
-        }
-      }
-      
-      function play() {
-        if (!playing) {
-          createAudioElements();
-          playCurrentColumn();
-          playing = true;
-        } else {
-          pause();
-          currentColumn = 0;
-          createAudioElements();
-          playCurrentColumn();
-          playing = true;
-        }
-      }
-      
-      function pause() {
-        for (var i = 0; i < audioElements.length; i++) {
-          audioElements[i].pause();
-        }
-        playing = false;
-      }
-      
-      function stop() {
-        for (var i = 0; i < audioElements.length; i++) {
-          audioElements[i].pause();
-          audioElements[i].currentTime = 0;
-        }
-        currentColumn = 0;
-        playing = false;
-      }
-      
-      function setSpeed(speed) {
-        for (var i = 0; i < audioElements.length; i++) {
-          audioElements[i].playbackRate = parseFloat(speed);
-        }
-      }
-      
-      function setVolume(volume) {
-        for (var i = 0; i < audioElements.length; i++) {
-          audioElements[i].volume = parseFloat(volume);
-        }
-      }
-    </script>
 
-  </body>
-  </html>
-  
-  
+          function setSpeed(speed) {
+            for (var i = 0; i < audioElements.length; i++) {
+              audioElements[i].playbackRate = parseFloat(speed);
+            }
+          }
+
+          function setVolume(volume) {
+            for (var i = 0; i < audioElements.length; i++) {
+              audioElements[i].volume = parseFloat(volume);
+            }
+          }
+        </script>
+      </body>
+    </html>
+  </head>
+</html>
