@@ -11,6 +11,7 @@ public interface ProjectService {
     void downloadProject(Project project);
     void uploadProject(Project project);
     void saveProject(Project project);
+    void openProject(Project project);
     List<Project>showAllProject();
     
 }

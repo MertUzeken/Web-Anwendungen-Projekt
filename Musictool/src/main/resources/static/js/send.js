@@ -13,7 +13,12 @@ playButton.addEventListener('click', () => {
 
     for (var j = 0, cell; cell=row.cells[j];j++){
       if (j>=3){
-        noteRow.push(1); //ToDO of Mared the 1 else 0
+        if (cell.style.backgroundColor == "white"){
+          noteRow.push(0)
+        }else {
+          noteRow.push(1);
+        }
+        
       }
     }
     if (document.getElementsByClassName('check')[i-1].checked){

@@ -4,15 +4,20 @@ table {
   margin-bottom: 20px;
 }
 
-table td,
-table th {
-  border: 1px solid #ddd;
+table td {
+  border: 1px solid #ffffff;
   padding: 8px;
   text-align: center;
 }
 
 table th {
-  background-color: #f2f2f2;
+  border: 1px solid #ffffff;
+  padding: 8px;
+  text-align: center;
+}
+
+table th {
+  background-color: #ffffff;
 }
 
 input[type="text"] {
@@ -33,7 +38,7 @@ select {
 
 button {
   background-color: #008CBA;
-  color: white;
+  color: rgb(255, 255, 255);
   border: none;
   padding: 8px 16px;
   text-align: center;
@@ -46,5 +51,8 @@ button {
 }
 
 button.delete-col {
-  background-color: #f44336;
+  background-color: #ffffff;
+}
+.selected {
+  background-color: yellow;
 }

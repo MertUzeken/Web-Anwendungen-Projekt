@@ -1,38 +1,24 @@
-$(document).ready(function() {
-    $("#matrix-table td:not(:first-child):not(:nth-child(2))").click(function(event) {
-      const clickedCell = $(this);
-      const row = clickedCell.closest("tr");
-      const column = clickedCell.index();
-      const currentValue = clickedCell.text();
-      if (currentValue === "") {
-        clickedCell.text("1");
-      } else if (currentValue === "1") {
-        let timeout;
-        let dragStartX;
-        clickedCell.text("2");
-        clickedCell.on("mousedown", function(event) {
-          dragStartX = event.pageX;
-          timeout = setTimeout(function() {
-            clickedCell.text("");
-            row.children("td").eq(column).text("2");
-          }, 500);
-        });
-        $(document).on("mousemove", function(event) {
-          if (dragStartX) {
-            clearTimeout(timeout);
-            const dragDistance = event.pageX - dragStartX;
-            if (dragDistance > 10) {
-              clickedCell.text("");
-              row.children("td").eq(column).text("2");
-            }
-          }
-        }).on("mouseup", function() {
-          dragStartX = null;
-          clearTimeout(timeout);
-        });
-      } else if (currentValue === "2") {
-        clickedCell.text("");
+// Warten bis das Dokument vollständig geladen ist
+document.addEventListener("DOMContentLoaded", function() {
+  // Das table-Element auswählen
+  var table = document.getElementById("matrix");
+
+  // Auf Klicks in den td-Elementen hören und Farbe ändern
+  table.addEventListener("click", function(event) {
+    var target = event.target;
+    var columnIndex = target.cellIndex;
+    var rowIndex = target.parentNode.rowIndex;
+
+    // Überprüfen Sie, ob es sich um eine Zelle in einer Zeile > 0 und einer Spalte > 3 handelt
+    if (rowIndex > 0 && columnIndex >= 3) {
+      // Überprüfen, ob die Zelle bereits gelb ist
+      if (target.style.backgroundColor === "yellow") {
+        // Wenn ja, ändern Sie die Farbe auf weiß
+        target.style.backgroundColor = "white";
+      } else {
+        // Wenn nein, ändern Sie die Farbe auf gelb
+        target.style.backgroundColor = "yellow";
       }
-    });
+    }
   });
-  
+});
